@@ -4,11 +4,11 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="groupXX", # Replace with your own username
+    name="group08",
     version="1.0.0",
-    author="GroupXX",
-    author_email="author@example.com",
-    description="Heuristic optimization 1st practical work, by Group XX.",
+    author="Group08",
+    author_email="ui.bertolo@alumnos.upm.es; mihail.neagu@alumnos.upm.es; jose.llopez@alumnos.upm.es",
+    description="Heuristic optimization 1st practical work, by Group 08.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/pypa/sampleproject",
