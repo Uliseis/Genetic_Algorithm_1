@@ -16,7 +16,9 @@ class EA(object):
 	def run (self,num):
 		for i in range(num):
 			algoritmo (param)
-		self.best = population.bestFitness ()
+		self.population = Population.sort ()
+		self.best = population [0]
+
 
 	def best (self):
 		return best
