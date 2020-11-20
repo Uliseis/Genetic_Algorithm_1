@@ -1,4 +1,4 @@
-import sys as s
+from Genome import * 
 class Population(Genome):
     global population = list()
     psize = 0
@@ -21,8 +21,8 @@ class Population(Genome):
         min = float('inf')
         index = 0
         for i in range(len(population)):
-            if(min < i.fitness):
-                min = i.fitness
+            if(min < population[i].fitness):
+                min = population[i].fitness
                 index = i
         return population[index]
         
@@ -32,7 +32,7 @@ class Population(Genome):
         else:
             population.sort(key = bestFitness)
         return population
-        
+
     def replaceSol(self, oldSol, newSol):
         i = population.index(oldSol)
         population[i] = newSol
