@@ -1,5 +1,6 @@
-# Example Package
+Algoritmo Genético -> 
 
-This is a simple example package. You can use
-[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
-to write your content.
+CROSSOVER: 2 Point
+MUTATION: Gaussiana
+SELECTION: Torneo
+REPLACEMENT: Generacional
