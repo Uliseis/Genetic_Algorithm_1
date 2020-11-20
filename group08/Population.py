@@ -1,28 +1,28 @@
-import sys as s
+from group08.Genome import Genome 
 class Population(Genome):
-    global population = list()
+    population = list()
     psize = 0
     def __init__(self, psize):
         self.psize = psize
 
-    def add(self,Genome):
-        if len(population)< self.psize
-            if Genome not in population:
-                population.append(Genome)
+    def add(self,genome):
+        if len(population)< self.psize:
+            if genome not in population:
+                population.append(genome)
         else:
             return -1
         return 0
 
-    def remove(self,toRemove):
-        if len(population) > 1
-            population.remove(toRemove)
+    def remove(self,toremove):
+        if len(population) > 1:
+            population.remove(toremove)
 
-    def bestFitness(self,elem):
-        min = float('inf')
+    def bestFitness(self):
+        minimum = float('inf')
         index = 0
         for i in range(len(population)):
-            if(min < i.fitness):
-                min = i.fitness
+            if(minimum < population[i].fitness):
+                minimum = population[i].fitness
                 index = i
         return population[index]
         
@@ -32,8 +32,8 @@ class Population(Genome):
         else:
             population.sort(key = bestFitness)
         return population
-        
-    def replaceSol(self, oldSol, newSol):
-        i = population.index(oldSol)
-        population[i] = newSol
+
+    def replaceSol(self, oldsol, newsol):
+        i = population.index(oldsol)
+        population[i] = newsol
         return i
