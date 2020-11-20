@@ -25,5 +25,5 @@ class TwoPointOperator(CrossoverOperator):
             hijo1 [i] = genomas[0].solucion [i]
             hijo2 [i] = genomas[1].solucion [i]
 
-        hijos = {hijo1,hijo2}
+        hijos = (hijo1,hijo2)
         return hijos
