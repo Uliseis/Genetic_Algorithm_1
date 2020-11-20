@@ -1,9 +1,11 @@
-class TwoPointOperator(object):
+from group08.Genome import CrossoverOperator
+import numpy as np
+class TwoPointOperator(CrossoverOperator):
 
     def __init__(self):
-        super.__init__
-        
+        CrossoverOperator.__init__ (self)
     
     def apply(self, genomas):
-        p1 = genomas.solucion.get
-        p2 = genomas.solucion.get
+        index1 = np.rand(0, genomas [0].size)
+        index2 = np.rand (0, genomas [0].size)
+        hijo1 = 
