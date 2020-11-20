@@ -17,7 +17,7 @@ class Population(Genome):
         if len(population) > 1:
             population.remove(toremove)
 
-    def bestFitness(self,elem):
+    def bestFitness(self):
         minimum = float('inf')
         index = 0
         for i in range(len(population)):
