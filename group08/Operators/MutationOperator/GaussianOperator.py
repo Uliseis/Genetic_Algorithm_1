@@ -9,6 +9,6 @@ class GaussianOperator (MutationOperator):
     def apply(self, genoma):
         res = genoma
         sigma = 0.1
-        index = np.rand (0, len(genoma.getSolucion()))
+        index = np.rand(0, len(genoma.getSolucion()))
         res [index] = np.random.normal(sigma,genoma.getSolucion())
         return res
