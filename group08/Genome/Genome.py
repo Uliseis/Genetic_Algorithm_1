@@ -1,4 +1,4 @@
-class Genome(solucion, fitness):
+class Genome():
     #Solucion candidata
     solucion = list()
     #Fitness de la solucion
