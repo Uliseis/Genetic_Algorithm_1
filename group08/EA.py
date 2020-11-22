@@ -1,5 +1,5 @@
+from Genome.Genome import Genome
 from Population import Population
-from Genome import Genome
 
 import numpy as np
 
