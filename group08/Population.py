@@ -1,7 +1,9 @@
-from group08.Genome import Genome 
-class Population(Genome):
+from Genome import Genome
+
+class Population():
     population = list()
     psize = 0
+
     def __init__(self, psize):
         self.psize = psize
 

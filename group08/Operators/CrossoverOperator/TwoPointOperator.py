@@ -1,5 +1,5 @@
-from group08 import CrossoverOperator
-from group08.Genome import Genome
+from Operators.CrossoverOperator import CrossoverOperator
+from Genome import Genome
 import numpy as np
 class TwoPointOperator(CrossoverOperator):
 
