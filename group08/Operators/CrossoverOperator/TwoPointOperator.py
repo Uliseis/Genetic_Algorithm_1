@@ -1,5 +1,5 @@
-from group08 import CrossoverOperator
-from group08.Genome import Genome
+from Operators.CrossoverOperator import CrossoverOperator
+from Genome import Genome
 import numpy as np
 class TwoPointOperator(CrossoverOperator):
 
@@ -14,16 +14,16 @@ class TwoPointOperator(CrossoverOperator):
         indexp2 = np.random(indexp1, size)
         
         for i in range (0, indexp1):
-            hijo1 [i] = genomas[0].getSolucion[i]
-            hijo2 [i] = genomas[1].getSolucion[i]
+            hijo1 [i] = genomas[0].getSolucion() [i]
+            hijo2 [i] = genomas[1].getSolucion() [i]
 
         for i in range (indexp1, indexp2):
-            hijo1 [i] = genomas[1].getSolucion [i]
-            hijo2 [i] = genomas[0].getSolucion [i]
+            hijo1 [i] = genomas[1].getSolucion() [i]
+            hijo2 [i] = genomas[0].getSolucion() [i]
 
         for i in range (indexp2, size):
-            hijo1 [i] = genomas[0].getSolucion [i]
-            hijo2 [i] = genomas[1].getSolucion [i]
+            hijo1 [i] = genomas[0].getSolucion() [i]
+            hijo2 [i] = genomas[1].getSolucion() [i]
 
         hijos = (hijo1,hijo2)
         return hijos
