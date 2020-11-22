@@ -7,3 +7,12 @@ class Genome(solucion, fitness):
         self.solucion = solucion
         self.fitness = fitness
 
+    def getSolucion(self):
+        return self.solucion
+
+    def getFitness(self):
+        return self.fitness
+    
+    def setFitness(self, fit):
+        self.fitness = fit
+
