@@ -1,3 +1,4 @@
+
 from Genome import Genome
 
 class Population():
@@ -8,34 +9,34 @@ class Population():
         self.psize = psize
 
     def add(self,genome):
-        if len(population)< self.psize:
-            if genome not in population:
-                population.append(genome)
+        if len(self.population)< self.psize:
+            if genome not in self.population:
+                self.population.append(genome)
         else:
             return -1
         return 0
 
     def remove(self,toremove):
-        if len(population) > 1:
-            population.remove(toremove)
+        if len(self.population) > 1:
+            self.population.remove(toremove)
 
     def bestFitness(self):
         minimum = float('inf')
         index = 0
-        for i in range(len(population)):
-            if(minimum < population[i].fitness):
-                minimum = population[i].fitness
+        for i in range(len(self.population)):
+            if minimum < self.population[i].fitness:
+                minimum = self.population[i].fitness
                 index = i
-        return population[index]
+        return self.population[index]
         
     def sort(self,reverse = False):
         if reverse:
-            population.sort(key = bestFitness, reverse = True)
+            self.population.sort(key = Genome.bestFitness, reverse = True)
         else:
-            population.sort(key = bestFitness)
-        return population
+            self.population.sort(key = Genome.bestFitness)
+        return self.population
 
     def replaceSol(self, oldsol, newsol):
-        i = population.index(oldsol)
-        population[i] = newsol
+        i = self.population.index(oldsol)
+        self.population[i] = newsol
         return i

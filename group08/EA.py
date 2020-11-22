@@ -21,17 +21,17 @@ class EA(object):
 		#for i in range(num):
 			#algoritmo (param)
 		self.population = Population.sort ()
-		self.best = population [0]
+		self.best = self.population[0]
 
 	def iniciarPoblacion(self):
-		for i in range(psize):
+		for i in range(self.psize):
 			listaVariables = list()
 			for j in range(len(self.bounds)):
-				listaVariables.append(np.random.rand(bounds[j][0], bounds[j][1]))
+				listaVariables.append(np.random.rand(self.bounds[j][0], self.bounds[j][1]))
 			gen = Genome(listaVariables, self.minfun(listaVariables))
 			self.population.add(gen)
 
 	def best (self):
-		return best
+		return self.best
 
 ej = EA()
