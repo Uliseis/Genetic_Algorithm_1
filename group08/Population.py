@@ -2,11 +2,12 @@
 from Genome import Genome
 
 class Population():
-    population = list()
+    global population
     psize = 0
 
     def __init__(self, psize):
         self.psize = psize
+        self.population = list()
 
     def add(self,genome):
         if len(self.population)< self.psize:

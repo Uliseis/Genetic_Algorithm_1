@@ -1,21 +1,38 @@
 from group08.Operators.SelectionOperator import SelectionOperator
+from group08.Genome import Genome
 import numpy as np
-class TournamentSelection(SelectionOperator):
-    def __init__(self):
-        super.__init__
-    
-    def apply(self, genomes, num):
-        k = 2
-        p = list()
 
-        for i in range(k-1):
-            random = np.random.rand(0,len(genomes))
-            if genomes[random] not in p:
-                p.append(genomes[random])
-        for i in range(k-1):
-            if np.random.rand() =< p[i]:
+
+class TournamentSelection(SelectionOperator):
+    k = 0
+
+    def __init__(self):
+        super.__init__()
+        self.k = 2
+
+    def apply(self, genomes, num):
+        p = self.select(genomes)
+        total = self.total(p)
+        props = [None] * self.k
+        for i in range(self.k):
+            props[i] = p[i].fitness / total
+            rand = np.random.rand()
+            if rand >= props[i]:
                 return p[i]
 
-        return p[k-1]
-            
+        return p[self.k - 1]
 
+    def select(self, genomes):
+        selected = [None] * self.k
+        for i in range(self.k):
+            random = np.random.rand(0, len(genomes))
+            if genomes[random] not in selected:
+                selected[i] = genomes[random]
+        return selected
+
+    @staticmethod
+    def total(selected):
+        total = 0
+        for i in selected:
+            total += i.fitness
+        return total
