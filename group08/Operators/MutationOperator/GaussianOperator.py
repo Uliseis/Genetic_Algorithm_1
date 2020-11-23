@@ -1,7 +1,7 @@
 from Operators.MutationOperator import MutationOperator
 from Genome import Genome
 import numpy as np
-import random
+from EA import EA
 
 
 class GaussianOperator (MutationOperator.MutationOperator):
@@ -17,7 +17,7 @@ class GaussianOperator (MutationOperator.MutationOperator):
             prob = np.random.rand()
             if prob < 0.15:
                 res[i] = np.random.normal(genoma.getSolucion()[i], sigma)
-        return Genome.Genome(res, 0)
+        return Genome.Genome(res, EA.calcular_fitness(res))
 
 
 gen = Genome.Genome([1.3, 5, 6.7, 34], 0)

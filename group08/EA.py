@@ -31,10 +31,10 @@ class EA(object):
 			gen = Genome(listaVariables, self.minfun(listaVariables))
 			self.population.add(gen)
 
-	def calcular_fitness(self, genoma):
-		return self.minfun(genoma.getSolucion())
+	@staticmethod
+	def calcular_fitness(self, variables):
+		return self.minfun(variables)
 
 	def best (self):
 		return self.best
 
-ej = EA()
