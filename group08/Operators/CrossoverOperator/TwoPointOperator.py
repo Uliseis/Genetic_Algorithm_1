@@ -8,24 +8,22 @@ class TwoPointOperator(CrossoverOperator.CrossoverOperator):
         super(TwoPointOperator, self).__init__()
 
     def apply(self, genomas):
-        hijo1 = list()
-        hijo2 = list()
+        aux1 = list ()
+        aux2 = list ()
         size = len(genomas[0].getSolucion())
         indexp1 = np.random.randint(0, size - 1)
         indexp2 = np.random.randint(indexp1 + 1, size-1)
 
-        for i in range(0, indexp1):
-            hijo1.append(genomas[0].getSolucion()[i])
-            hijo2.append(genomas[1].getSolucion()[i])
+        for i in range(0, size):
+            if i < indexp1 or i > indexp2:
+                aux1.append(genomas[0].getSolucion()[i])
+                aux2.append(genomas[1].getSolucion()[i])
+            elif i < indexp2:
+                aux1.append(genomas[1].getSolucion()[i])
+                aux2.append(genomas[0].getSolucion()[i])
 
-        for i in range(indexp1, indexp2):
-            hijo1.append(genomas[1].getSolucion()[i])
-            hijo2.append(genomas[0].getSolucion()[i])
-
-        for i in range(indexp2, size):
-            hijo1.append(genomas[0].getSolucion()[i])
-            hijo2.append(genomas[1].getSolucion()[i])
-
+        hijo1 = Genome (aux1)
+        hijo2 = Genome (aux2)
         hijos = [hijo1, hijo2]
         return hijos
 
