@@ -12,13 +12,13 @@ class TwoPointOperator(CrossoverOperator.CrossoverOperator):
         aux2 = list ()
         size = len(genomas[0].getSolucion())
         indexp1 = np.random.randint(0, size / 2)
-        indexp2 = np.random.randint(indexp1, size-1)
+        indexp2 = np.random.randint(size/2, size)
 
         for i in range(0, size):
-            if i < indexp1 or i >= indexp2:
+            if i < indexp1 or i > indexp2:
                 aux1.append(genomas[0].getSolucion()[i])
                 aux2.append(genomas[1].getSolucion()[i])
-            elif i < indexp2:
+            else:
                 aux1.append(genomas[1].getSolucion()[i])
                 aux2.append(genomas[0].getSolucion()[i])
 
