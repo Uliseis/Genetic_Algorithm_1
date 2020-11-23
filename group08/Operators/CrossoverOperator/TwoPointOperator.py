@@ -15,7 +15,7 @@ class TwoPointOperator(CrossoverOperator.CrossoverOperator):
         indexp2 = np.random.randint(indexp1 + 1, size-1)
 
         for i in range(0, size):
-            if i < indexp1 or i > indexp2:
+            if i < indexp1 or i >= indexp2:
                 aux1.append(genomas[0].getSolucion()[i])
                 aux2.append(genomas[1].getSolucion()[i])
             elif i < indexp2:
