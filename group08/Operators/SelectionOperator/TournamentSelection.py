@@ -1,6 +1,5 @@
-from Operators.SelectionOperator import SelectionOperator
-from Genome import Genome
-import random as rd
+from group08.Operators.SelectionOperator import SelectionOperator
+from group08.Genome import Genome
 import numpy as np
 
 
@@ -26,7 +25,7 @@ class TournamentSelection(SelectionOperator):
     def select(self, genomes):
         selected = [None] * self.k
         for i in range(self.k):
-            random = rd.randint(0, len(genomes))
+            random = np.random.rand(0, len(genomes))
             if genomes[random] not in selected:
                 selected[i] = genomes[random]
         return selected
