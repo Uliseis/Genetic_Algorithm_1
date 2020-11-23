@@ -1,5 +1,6 @@
-from group08.Operators.SelectionOperator import SelectionOperator
-from group08.Genome import Genome
+from Operators.SelectionOperator import SelectionOperator
+from Genome import Genome
+
 import numpy as np
 
 

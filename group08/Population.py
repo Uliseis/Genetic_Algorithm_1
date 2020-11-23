@@ -1,4 +1,3 @@
-
 from Genome import Genome
 
 class Population():
