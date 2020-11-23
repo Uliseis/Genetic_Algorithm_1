@@ -17,3 +17,5 @@ class GaussianOperator (MutationOperator):
                 index = np.rand(0, len(genoma.getSolucion()))
                 res[index] = np.random.normal(sigma, genoma.getSolucion())
         return res
+
+
