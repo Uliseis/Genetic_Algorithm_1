@@ -1,5 +1,6 @@
-from group08.Operators.SelectionOperator import SelectionOperator
-from group08.Genome import Genome
+from Operators.SelectionOperator import SelectionOperator
+from Genome import Genome
+
 import numpy as np
 
 
@@ -7,7 +8,7 @@ class TournamentSelection(SelectionOperator):
     k = 0
 
     def __init__(self):
-        super.__init__()
+        super(SelectionOperator, self).__init__()
         self.k = 2
 
     def apply(self, genomes, num):
