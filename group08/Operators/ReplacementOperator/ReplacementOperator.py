@@ -6,5 +6,5 @@ class SelectionOperator (ABC):
         super.__init__
     
     @abstractmethod
-    def apply (self,genome1,genome2):
+    def apply (self,population1, population2):
         pass

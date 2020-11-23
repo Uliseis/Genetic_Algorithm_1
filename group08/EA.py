@@ -10,7 +10,7 @@ class EA(object):
 	best = 0
 	population = Population ()
 
-	def __init__(self,minfun,bounds,psize):
+	def __init__(self, minfun, bounds, psize):
 		print(np.random.rand())
 		super(EA, self).__init__()
 		self.minfun = minfun
@@ -23,13 +23,16 @@ class EA(object):
 		self.population = Population.sort ()
 		self.best = self.population[0]
 
-	def iniciarPoblacion(self):
+	def iniciarpoblacion(self):
 		for i in range(self.psize):
 			listaVariables = list()
 			for j in range(len(self.bounds)):
 				listaVariables.append(np.random.rand(self.bounds[j][0], self.bounds[j][1]))
 			gen = Genome(listaVariables, self.minfun(listaVariables))
 			self.population.add(gen)
+
+	def calcular_fitness(self, genoma):
+		return self.minfun(genoma.getSolucion())
 
 	def best (self):
 		return self.best
