@@ -37,6 +37,7 @@ class Population:
         return self.population
 
     def bestBitness (self):
+        self.sort()
         return self.population [0]
 
     def replaceSol(self, oldsol, newsol):

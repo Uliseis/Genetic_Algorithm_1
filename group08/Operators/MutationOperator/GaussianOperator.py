@@ -23,5 +23,5 @@ class GaussianOperator (MutationOperator.MutationOperator):
 
 gen = Genome.Genome([1.3, 5, 6.7, 34], 0)
 g = GaussianOperator()
-g1 = g.apply(gen)
+g1 = g.apply([gen])
 print(g1.getSolucion())

@@ -8,7 +8,7 @@ class EA(object):
 	bounds = list ()
 	psize = 0
 	best = 0
-	population = Population ()
+	population = Population()
 
 	def __init__(self, minfun, bounds, psize):
 		print(np.random.rand())
@@ -16,6 +16,7 @@ class EA(object):
 		self.minfun = minfun
 		self.bounds = bounds
 		self.psize = psize
+		self.population = Population(len(bounds))
 		
 	def run (self,num):
 		#for i in range(num):

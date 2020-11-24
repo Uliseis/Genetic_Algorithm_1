@@ -4,8 +4,8 @@ class CrossoverOperator(ABC):
     
     @abstractmethod
     def __init__(self):
-        super.__init__
-        
+        pass
+
     @abstractmethod
     def apply(self, genomas):
         pass
