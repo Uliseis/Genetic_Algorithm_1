@@ -4,5 +4,5 @@ class GenerationalReplacement(ReplacementOperator):
     def __init__(self):
         super(GenerationalReplacement, self).__init__()
 
-    def apply(self, population1, population2):
-        
+    def apply(self, populationActual, populationNueva):
+        return populationNueva
