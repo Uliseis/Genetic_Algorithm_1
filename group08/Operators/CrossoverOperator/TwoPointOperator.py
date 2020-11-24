@@ -27,12 +27,3 @@ class TwoPointOperator(CrossoverOperator.CrossoverOperator):
         hijos = [hijo1, hijo2]
         return hijos
 
-
-l1 = [2, 3, 4, 5]
-l2 = [6, 5, 8, 23]
-gen1 = Genome.Genome(l1, 76)
-gen2 = Genome.Genome(l2, 75)
-cr = TwoPointOperator()
-la = cr.apply((gen1, gen2))
-print(la[0].getSolucion())
-print(la[1].getSolucion())

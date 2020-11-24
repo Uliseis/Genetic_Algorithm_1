@@ -41,14 +41,3 @@ class TournamentSelection(SelectionOperator.SelectionOperator):
             total += i.fitness
         return total
 
-
-g1 = Genome.Genome([1, 4, 5, 6], 100)
-g2 = Genome.Genome([2, 3, 41, 41], 50)
-g3 = Genome.Genome([5, 79, 767, 342], 1)
-pop = Population(3)
-pop.add(g1)
-pop.add(g2)
-pop.add(g3)
-tour = TournamentSelection()
-l = tour.apply(pop, 0)
-print(l[0].getSolucion())

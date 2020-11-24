@@ -20,7 +20,3 @@ class GaussianOperator (MutationOperator.MutationOperator):
         return Genome.Genome(res, 0)
 
 
-gen = Genome.Genome([1.3, 5, 6.7, 34], 0)
-g = GaussianOperator()
-g1 = g.apply([gen])
-print(g1.getSolucion())
