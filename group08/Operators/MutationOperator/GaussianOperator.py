@@ -9,7 +9,8 @@ class GaussianOperator (MutationOperator.MutationOperator):
     def __init__(self):
         super(MutationOperator.MutationOperator, self).__init__()
 
-    def apply(self, genoma):
+    def apply(self, genomas):
+        genoma = genomas[0]
         res = genoma.getSolucion()
         sigma = 0.5
         size = len(genoma.getSolucion())

@@ -28,12 +28,13 @@ class EA(object):
 			listaVariables = list()
 			for j in range(len(self.bounds)):
 				listaVariables.append(np.random.rand(self.bounds[j][0], self.bounds[j][1]))
-			gen = Genome(listaVariables, self.minfun(listaVariables))
+			gen = Genome(listaVariables, self.calcular_fitness(listaVariables))
 			self.population.add(gen)
 
 	@staticmethod
 	def calcular_fitness(self, variables):
-		return self.minfun(variables)
+		valorfuncion = self.minfun(variables)
+		return (1/(1 + valorfuncion)) * 100
 
 	def best (self):
 		return self.best
