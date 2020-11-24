@@ -22,17 +22,15 @@ class Population:
 
     def sort(self, reverse=False):
         for i in range(self.psize):
-            j = i +1
-            for j in range(self.psize):
+            for j in range(i + 1, self.psize):
                 if self.population[i].getFitness() > self.population[j].getFitness():
-                    aux = self.population[i]
-                    self.population[i] = self.population[j]
-                    self.population[j] = aux
+                    self.population[i], self.population[j] = self.population[j], self.population[i]
+
         return self.population
 
-    def bestFitness (self):
+    def bestFitness(self):
         self.sort()
-        return self.population [0]
+        return self.population[0]
 
     def replaceSol(self, oldsol, newsol):
         i = self.population.index(oldsol)
@@ -46,4 +44,4 @@ class Population:
         return total
 
     def getAverageFitness(self):
-        return self.getTotalFitness()/self.psize
+        return self.getTotalFitness() / self.psize
