@@ -11,8 +11,7 @@ class Population:
 
     def add(self, genome):
         if len(self.population) < self.psize:
-            if genome not in self.population:
-                self.population.append(genome)
+            self.population.append(genome)
         else:
             return -1
         return 0
@@ -44,3 +43,12 @@ class Population:
         i = self.population.index(oldsol)
         self.population[i] = newsol
         return i
+
+    def getTotalFitness(self):
+        total = 0
+        for i in range(self.psize):
+            total += self.population[i].getFitness()
+        return total
+
+    def getAvergeFitness(self):
+        return self.getTotalFitness()/self.psize
