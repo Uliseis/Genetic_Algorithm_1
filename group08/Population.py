@@ -21,7 +21,7 @@ class Population:
         if len(self.population) > 1:
             self.population.remove(toremove)
 
-    def bestFitness(self):
+    def sortFitness(self):
         minimum = float('inf')
         index = 0
         for i in range(len(self.population)):
@@ -32,10 +32,13 @@ class Population:
 
     def sort(self, reverse=False):
         if reverse:
-            self.population.sort(key=Genome.bestFitness, reverse=True)
+            self.population.sort(key=Genome.sortFitness, reverse=True)
         else:
-            self.population.sort(key=Genome.bestFitness)
+            self.population.sort(key=Genome.sortFitness)
         return self.population
+
+    def bestBitness (self):
+        return self.population [0]
 
     def replaceSol(self, oldsol, newsol):
         i = self.population.index(oldsol)
