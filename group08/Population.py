@@ -23,7 +23,7 @@ class Population:
     def sort(self, reverse=False):
         for i in range(self.psize):
             for j in range(i + 1, self.psize):
-                if self.population[i].getFitness() > self.population[j].getFitness():
+                if self.population[i].getFitness() < self.population[j].getFitness():
                     self.population[i], self.population[j] = self.population[j], self.population[i]
 
         return self.population

@@ -70,10 +70,12 @@ class EA(object):
 
 
 def f(l):
-	return pow(l[0], 2) + pow(l[1],2) + pow(l[2], 2) + pow(l[3], 2)
+	return
 
-ea = EA(f, [[-10,10],[-10,10],[-10,10],[-10,10]], 50)
+ea = EA(f, [[-5,5], [-5,5]], 50)
 print(ea.population.getAverageFitness())
+print(ea.best().getSolucion())
+print (ea.best().getFitness())
 ea.run(50000)
 print(ea.population.getAverageFitness())
 print(ea.best().getSolucion())
