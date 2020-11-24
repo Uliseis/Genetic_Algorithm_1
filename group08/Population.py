@@ -31,9 +31,9 @@ class Population:
 
     def sort(self, reverse=False):
         if reverse:
-            self.population.sort(key=Genome.sortFitness, reverse=True)
+            self.population.sort(key=self.sortFitness, reverse=True)
         else:
-            self.population.sort(key=Genome.sortFitness)
+            self.population.sort(key=self.sortFitness)
         return self.population
 
     def bestFitness (self):

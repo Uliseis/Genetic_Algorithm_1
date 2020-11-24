@@ -1,3 +1,5 @@
+import math
+
 from Genome.Genome import Genome
 from Population import Population
 from Operators.CrossoverOperator import TwoPointOperator
@@ -20,7 +22,6 @@ class EA(object):
 	minfun = None
 
 	def __init__(self, minfun, bounds, psize):
-		print(np.random.rand())
 		super(EA, self).__init__()
 		self.minfun = minfun
 		self.bounds = bounds
@@ -38,8 +39,8 @@ class EA(object):
 
 	def algorithm(self, popul):
 		newpopulation = Population(self.psize)
-		for i in range(0, self.psize/2):
-			selected = [self.selecOper.apply(popul, 0), self.selecOper.apply(popul, 0)]
+		for i in range(0, math.floor(self.psize/2)):
+			selected = [self.selecOper.apply(popul, 0)[0], self.selecOper.apply(popul, 0)[0]]
 			crossed = self.crossOper.apply(selected)
 			crossed[0].fitness = self.calcular_fitness(crossed[0].getSolucion())
 			crossed[1].fitness = self.calcular_fitness(crossed[1].getSolucion())
@@ -68,10 +69,11 @@ class EA(object):
 
 
 
-def f(a, b, c, d):
-	return pow(a, 2) + pow(b,2) + pow(c, 2) + pow(d, 2)
+def f(l):
+	return pow(l[0], 2) + pow(l[1],2) + pow(l[2], 2) + pow(l[3], 2)
 
 ea = EA(f, [[-10,10],[-10,10],[-10,10],[-10,10]], 10)
 print(ea.population.getAverageFitness())
 ea.run(1000)
 print(ea.population.getAverageFitness())
+print(ea.best().getSolucion())
