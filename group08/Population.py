@@ -24,7 +24,7 @@ class Population:
         for i in range(self.psize):
             j = i +1
             for j in range(self.psize):
-                if self.population[i].getFitness() < self.population[j].getFitness():
+                if self.population[i].getFitness() > self.population[j].getFitness():
                     aux = self.population[i]
                     self.population[i] = self.population[j]
                     self.population[j] = aux
