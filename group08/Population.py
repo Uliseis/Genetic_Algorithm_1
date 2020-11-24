@@ -21,10 +21,16 @@ class Population:
             self.population.remove(toremove)
 
     def sort(self, reverse=False):
-        for i in range(self.psize):
-            for j in range(i + 1, self.psize):
-                if self.population[i].getFitness() < self.population[j].getFitness():
-                    self.population[i], self.population[j] = self.population[j], self.population[i]
+        if not reverse:
+            for i in range(self.psize):
+                for j in range(i + 1, self.psize):
+                    if self.population[i].getFitness() < self.population[j].getFitness():
+                        self.population[i], self.population[j] = self.population[j], self.population[i]
+        else:
+            for i in range(self.psize):
+                for j in range(i + 1, self.psize):
+                    if self.population[i].getFitness() > self.population[j].getFitness():
+                        self.population[i], self.population[j] = self.population[j], self.population[i]
 
         return self.population
 
