@@ -36,7 +36,7 @@ class Population:
             self.population.sort(key=Genome.sortFitness)
         return self.population
 
-    def bestBitness (self):
+    def bestFitness (self):
         self.sort()
         return self.population [0]
 
