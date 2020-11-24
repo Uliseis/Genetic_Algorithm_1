@@ -51,5 +51,5 @@ class Population:
             total += self.population[i].getFitness()
         return total
 
-    def getAvergeFitness(self):
+    def getAverageFitness(self):
         return self.getTotalFitness()/self.psize

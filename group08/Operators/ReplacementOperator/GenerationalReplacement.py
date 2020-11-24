@@ -1,8 +1,10 @@
 from Operators.ReplacementOperator import ReplacementOperator
 
-class GenerationalReplacement(ReplacementOperator):
+
+class GenerationalReplacement(ReplacementOperator.ReplacementOperator):
+
     def __init__(self):
-        super(GenerationalReplacement, self).__init__()
+        super().__init__()
 
     def apply(self, populationActual, populationNueva):
         return populationNueva

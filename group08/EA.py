@@ -17,6 +17,7 @@ class EA(object):
 	mutOper = None
 	replOper = None
 	selecOper = None
+	minfun = None
 
 	def __init__(self, minfun, bounds, psize):
 		print(np.random.rand())
@@ -29,9 +30,9 @@ class EA(object):
 		self.mutOper = GaussianOperator.GaussianOperator()
 		self.replOper = GenerationalReplacement.GenerationalReplacement()
 		self.selecOper = TournamentSelection.TournamentSelection()
+		self.initpopulation()
 		
 	def run(self,num):
-		self.iniciarpoblacion()
 		for i in range(num):
 			self.population = self.algorithm(self.population)
 
@@ -40,11 +41,17 @@ class EA(object):
 		for i in range(0, self.psize/2):
 			selected = [self.selecOper.apply(popul, 0), self.selecOper.apply(popul, 0)]
 			crossed = self.crossOper.apply(selected)
-			newpopulation.add(self.mutOper.apply([crossed[0]]))
-			newpopulation.add(self.mutOper.apply([crossed[0]]))
+			crossed[0].fitness = self.calcular_fitness(crossed[0].getSolucion())
+			crossed[1].fitness = self.calcular_fitness(crossed[1].getSolucion())
+			gen1 = self.mutOper.apply([crossed[0]])
+			gen1.fitness = self.calcular_fitness(gen1.getSolucion())
+			gen2 = self.mutOper.apply([crossed[1]])
+			gen2.fitness = self.calcular_fitness(gen2.getSolucion())
+			newpopulation.add(gen1)
+			newpopulation.add(gen2)
 		return self.replOper.apply(popul, newpopulation)
 
-	def iniciarpoblacion(self):
+	def initpopulation(self):
 		for i in range(self.psize):
 			listaVariables = list()
 			for j in range(len(self.bounds)):
@@ -52,7 +59,6 @@ class EA(object):
 			gen = Genome(listaVariables, self.calcular_fitness(listaVariables))
 			self.population.add(gen)
 
-	@staticmethod
 	def calcular_fitness(self, variables):
 		valorfuncion = self.minfun(variables)
 		return (1/(1 + valorfuncion)) * 100
@@ -60,3 +66,12 @@ class EA(object):
 	def best(self):
 		return self.population.bestFitness()
 
+
+
+def f(a, b, c, d):
+	return pow(a, 2) + pow(b,2) + pow(c, 2) + pow(d, 2)
+
+ea = EA(f, [[-10,10],[-10,10],[-10,10],[-10,10]], 10)
+print(ea.population.getAverageFitness())
+ea.run(1000)
+print(ea.population.getAverageFitness())

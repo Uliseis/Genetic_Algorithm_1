@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 
-class SelectionOperator (ABC):
+class ReplacementOperator (ABC):
     @abstractmethod
-    def __init__ (self):
+    def __init__(self):
         pass
 
     @abstractmethod

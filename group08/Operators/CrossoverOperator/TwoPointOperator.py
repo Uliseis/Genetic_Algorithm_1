@@ -1,12 +1,11 @@
 from Operators.CrossoverOperator import CrossoverOperator
 from Genome import Genome
-from EA import EA
 import numpy as np
 
 
 class TwoPointOperator(CrossoverOperator.CrossoverOperator):
     def __init__(self):
-        super(TwoPointOperator, self).__init__()
+        super().__init__()
 
     def apply(self, genomas):
         aux1 = list()
@@ -23,8 +22,8 @@ class TwoPointOperator(CrossoverOperator.CrossoverOperator):
                 aux1.append(genomas[1].getSolucion()[i])
                 aux2.append(genomas[0].getSolucion()[i])
 
-        hijo1 = Genome.Genome(aux1, EA.calcular_fitness(aux1))
-        hijo2 = Genome.Genome(aux2, EA.calcular_fitness(aux2))
+        hijo1 = Genome.Genome(aux1, 0)
+        hijo2 = Genome.Genome(aux2, 0)
         hijos = [hijo1, hijo2]
         return hijos
 

@@ -9,7 +9,7 @@ class TournamentSelection(SelectionOperator.SelectionOperator):
     k = 0
 
     def __init__(self):
-        super(TournamentSelection, self).__init__()
+        super().__init__()
         self.k = 2
 
     def apply(self, genomes, num):
