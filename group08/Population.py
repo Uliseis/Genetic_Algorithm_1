@@ -20,20 +20,14 @@ class Population:
         if len(self.population) > 1:
             self.population.remove(toremove)
 
-    def sortFitness(self):
-        minimum = float('inf')
-        index = 0
-        for i in range(len(self.population)):
-            if minimum < self.population[i].fitness:
-                minimum = self.population[i].fitness
-                index = i
-        return self.population[index]
-
     def sort(self, reverse=False):
-        if reverse:
-            self.population.sort(key=self.sortFitness, reverse=True)
-        else:
-            self.population.sort(key=self.sortFitness)
+        for i in range(self.psize):
+            j = i +1
+            for j in range(self.psize):
+                if self.population[i].getFitness() < self.population[j].getFitness():
+                    aux = self.population[i]
+                    self.population[i] = self.population[j]
+                    self.population[j] = aux
         return self.population
 
     def bestFitness (self):
