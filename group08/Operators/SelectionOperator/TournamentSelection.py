@@ -10,6 +10,28 @@ class TournamentSelection(SelectionOperator.SelectionOperator):
         super().__init__()
         self.k = 2
 
+    #Selecciona de forma aleatoria k genomas de la poblacion
+    def select(self, genomes):
+        selected = list()
+        for i in range(self.k):
+            random = rd.randint(0, len(genomes) - 1)
+            if genomes[random] not in selected:
+                selected.append(genomes[random])
+            else:
+                i = i - 1
+        return selected
+
+    @staticmethod
+    def total(selected):  #Fitness total
+        total = 0
+        for i in selected:
+            total += i.fitness
+        return total
+
+    '''A los genomas seleccionados se les asigna una probabilidad ,p1, 
+     en función de su fitness, una vez la tienen asignada se compara 
+     con una probabilidad aleatoria,rand, de manera que si p1 >= rand el
+     genoma con probabildad p1 es seleccionado'''
     def apply(self, genomes, num):
         p = self.select(genomes.population)
         total = self.total(p)
@@ -22,20 +44,5 @@ class TournamentSelection(SelectionOperator.SelectionOperator):
 
         return [p[self.k - 1]]
 
-    def select(self, genomes):
-        selected = list()
-        for i in range(self.k):
-            random = rd.randint(0, len(genomes)-1)
-            if genomes[random] not in selected:
-                selected.append(genomes[random])
-            else:
-                i = i - 1
-        return selected
 
-    @staticmethod
-    def total(selected):
-        total = 0
-        for i in selected:
-            total += i.fitness
-        return total
 

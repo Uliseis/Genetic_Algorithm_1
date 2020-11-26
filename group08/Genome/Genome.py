@@ -1,7 +1,7 @@
 class Genome:
-    #Solucion candidata
+    #Genoma
     solucion = list()
-    #Fitness de la solucion
+    #Fitness del genoma
     fitness = 0
 
     def __init__(self, solucion, fitness):
@@ -14,6 +14,7 @@ class Genome:
     def getFitness(self):
         return self.fitness
 
+    #El fitness del genoma pasa a ser "fit"
     def setFitness(self, fit):
         self.fitness = fit
 
