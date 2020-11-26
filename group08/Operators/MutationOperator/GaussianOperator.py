@@ -12,7 +12,7 @@ class GaussianOperator (MutationOperator.MutationOperator):
     def apply(self, genomas):
         genoma = genomas[0]
         res = genoma.getSolucion()
-        sigma = 0.6  # El sigma se escoge de forma que la funcion sea equilibrada
+        sigma = 0.5  # El sigma se escoge de forma que la funcion sea equilibrada
         size = len(genoma.getSolucion())
         for i in range(0, size):
             prob = np.random.rand()  # Se utiliza una probabilidad aleatoria con dominio de 0 a 1
