@@ -1,5 +1,5 @@
-from Operators.MutationOperator import MutationOperator
-from Genome import Genome
+from group08.Operators.MutationOperator import MutationOperator
+from group08.Genome import Genome
 import numpy as np
 
 

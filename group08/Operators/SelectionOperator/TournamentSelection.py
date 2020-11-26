@@ -1,6 +1,4 @@
-from Operators.SelectionOperator import SelectionOperator
-from Population import Population
-from Genome import Genome
+from group08.Operators.SelectionOperator import SelectionOperator
 import numpy as np
 import random as rd
 

@@ -1,4 +1,4 @@
-from Operators.ReplacementOperator import ReplacementOperator
+from group08.Operators.ReplacementOperator import ReplacementOperator
 
 
 class GenerationalReplacement(ReplacementOperator.ReplacementOperator):

@@ -1,11 +1,11 @@
 import math
 
-from Genome.Genome import Genome
-from Population import Population
-from Operators.CrossoverOperator import TwoPointOperator
-from Operators.MutationOperator import GaussianOperator
-from Operators.SelectionOperator import TournamentSelection
-from Operators.ReplacementOperator import GenerationalReplacement
+from group08.Genome.Genome import Genome
+from group08.Population.Population import Population
+from group08.Operators.CrossoverOperator import TwoPointOperator
+from group08.Operators.MutationOperator import GaussianOperator
+from group08.Operators.SelectionOperator import TournamentSelection
+from group08.Operators.ReplacementOperator import GenerationalReplacement
 
 import numpy as np
 import random
@@ -70,9 +70,9 @@ class EA(object):
 
 
 def f(l):
-	return
+	return l[0]*l[0] + 2 *l[1] * l[1] -0.3 * math.cos(3* np.pi * l[0]) - 0.4 * math.cos(4* np.pi * l[1]) +0.7
 
-ea = EA(f, [[-5,5], [-5,5]], 50)
+ea = EA(f, [[-10,10], [-10,10]], 50)
 print(ea.population.getAverageFitness())
 print(ea.best().getSolucion())
 print (ea.best().getFitness())
