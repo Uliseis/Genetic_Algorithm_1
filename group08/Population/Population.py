@@ -36,7 +36,7 @@ class Population:
 
     #Devuelve el genoma con el mejor fitness
     def bestFitness(self):
-        return self.sort()[0]
+        return self.sort(reverse=True)[0]
 
     '''Reemplaza un genoma antiguo por uno nuevo y 
     devuelve so posicion en la poblacion'''

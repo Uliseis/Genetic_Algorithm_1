@@ -13,12 +13,10 @@ class TournamentSelection(SelectionOperator.SelectionOperator):
     #Selecciona de forma aleatoria k genomas de la poblacion
     def select(self, genomes):
         selected = list()
-        for i in range(self.k):
+        while len(selected) < self.k:
             random = rd.randint(0, len(genomes) - 1)
             if genomes[random] not in selected:
                 selected.append(genomes[random])
-            else:
-                i = i - 1
         return selected
 
     @staticmethod
@@ -37,7 +35,7 @@ class TournamentSelection(SelectionOperator.SelectionOperator):
         total = self.total(p)
         props = [None] * self.k
         for i in range(self.k):
-            props[i] = p[i].fitness / total
+            props[i] = (total - p[i].fitness) / total
             rand = np.random.rand()
             if rand <= props[i]:
                 return [p[i]]
