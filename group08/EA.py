@@ -32,7 +32,7 @@ class EA(object):
 		self.mutOper = GaussianOperator.GaussianOperator()
 		self.replOper = GenerationalReplacement.GenerationalReplacement()
 		self.selecOper = TournamentSelection.TournamentSelection()
-		self.initpopulation()
+		self.population = self.initpopulation()
 
 	#Metodo que corre el algoritmo genetico num veces
 	def run(self,num):
@@ -66,12 +66,14 @@ class EA(object):
 
 	#Inicia las variables de cada genoma aleatoriamente y añade psize genomas a la poblacion
 	def initpopulation(self):
+		p = Population(self.psize);
 		for i in range(self.psize):
 			listaVariables = list()
 			for j in range(len(self.bounds)):
 				listaVariables.append(random.uniform(self.bounds[j][0], self.bounds[j][1]))
 			gen = Genome(listaVariables, self.calcular_fitness(listaVariables))
-			self.population.add(gen)
+			p.add(gen)
+		return p
 
 	#Metodo que recoloca cada variable de los genomas de la poblacion si se han salido
 	#de los limites con los que se ha creado EA
@@ -85,8 +87,7 @@ class EA(object):
 
 	#Metodo que calcula el fitness de un genoma en funcion del valor que se obtiene con minfun
 	def calcular_fitness(self, variables):
-		valorfuncion = self.minfun(variables)
-		return (1/(1 + valorfuncion)) * 100
+		return self.minfun(variables)
 
 	#Metodo que devuelve el mejor genoma de una poblacion
 	def best(self):
